@@ -22,12 +22,18 @@ description:         Please see the README on Github at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - protolude
+- servant
+- servant-server
+- warp
 
 default-extensions:
 - OverloadedStrings
 - NoImplicitPrelude
 - GeneralizedNewtypeDeriving
 - RecordWildCards
+- DataKinds
+- TypeOperators
+- TypeApplications
 
 library:
   source-dirs: src

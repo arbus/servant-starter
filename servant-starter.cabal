@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c8c668c12e9c01c6d4efc348861ea9831c68819cd4be41ac8fa3ac9958eb4449
+-- hash: 8e34aa98739d7d53388fd9f382850bcafd6ec399db08a9269b1859a76b214da6
 
 name:           servant-starter
 version:        0.1.0.0
@@ -28,13 +28,17 @@ source-repository head
 library
   hs-source-dirs:
       src
-  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   build-depends:
       base >=4.7 && <5
     , protolude
+    , servant
+    , servant-server
+    , warp
   exposed-modules:
       Lib
       Lib.Prelude
+      Lib.Server
       Lib.Types
       Lib.Types.App
       Lib.Types.Session
@@ -46,12 +50,15 @@ executable servant-starter-exe
   main-is: Main.hs
   hs-source-dirs:
       app
-  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , protolude
+    , servant
+    , servant-server
     , servant-starter
+    , warp
   other-modules:
       Paths_servant_starter
   default-language: Haskell2010
@@ -61,12 +68,15 @@ test-suite servant-starter-test
   main-is: Spec.hs
   hs-source-dirs:
       test
-  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , protolude
+    , servant
+    , servant-server
     , servant-starter
+    , warp
   other-modules:
       Paths_servant_starter
   default-language: Haskell2010

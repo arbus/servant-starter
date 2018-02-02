@@ -4,4 +4,4 @@ import           Lib
 import           Protolude
 
 main :: IO ()
-main = someFunc
+main = libMain
