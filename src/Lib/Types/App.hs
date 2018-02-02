@@ -1,5 +1,7 @@
 module Lib.Types.App where
 
+import           Data.Pool
+import           Database.PostgreSQL.Simple
 import           Lib.Types.Session
 import           Protolude
 
@@ -9,7 +11,8 @@ data AppError =
     | NotFound
     | ServerError Text
 
-newtype AppEnv = AppEnv {
+data AppEnv = AppEnv {
+    dbPool   :: Pool Connection,
     sessions :: MVar (Map Text Session)
 }
 

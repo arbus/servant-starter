@@ -27,6 +27,8 @@ dependencies:
 - wai
 - warp
 - containers
+- resource-pool
+- postgresql-simple
 
 default-extensions:
 - OverloadedStrings

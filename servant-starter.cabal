@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3ca9560937362c1eb5780e2e9cb66c3594f45e9cc52897e73c50595292b89886
+-- hash: 80bf84aae797c3fb88526166be7c5383f0794c8f3ee0d7de118e45e61944c28d
 
 name:           servant-starter
 version:        0.1.0.0
@@ -32,7 +32,9 @@ library
   build-depends:
       base >=4.7 && <5
     , containers
+    , postgresql-simple
     , protolude
+    , resource-pool
     , servant
     , servant-server
     , wai
@@ -59,7 +61,9 @@ executable servant-starter-exe
   build-depends:
       base >=4.7 && <5
     , containers
+    , postgresql-simple
     , protolude
+    , resource-pool
     , servant
     , servant-server
     , servant-starter
@@ -81,7 +85,9 @@ test-suite servant-starter-test
     , containers
     , hspec
     , http-client
+    , postgresql-simple
     , protolude
+    , resource-pool
     , servant
     , servant-client
     , servant-server
