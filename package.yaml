@@ -25,6 +25,7 @@ dependencies:
 - servant
 - servant-server
 - warp
+- containers
 
 default-extensions:
 - OverloadedStrings

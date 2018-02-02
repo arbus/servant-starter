@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8e34aa98739d7d53388fd9f382850bcafd6ec399db08a9269b1859a76b214da6
+-- hash: b5c99947ef95b6455bd89ecd3813a2b42117865fa1afc084afca35469abf2e68
 
 name:           servant-starter
 version:        0.1.0.0
@@ -31,6 +31,7 @@ library
   default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   build-depends:
       base >=4.7 && <5
+    , containers
     , protolude
     , servant
     , servant-server
@@ -42,6 +43,8 @@ library
       Lib.Types
       Lib.Types.App
       Lib.Types.Session
+      Lib.Util
+      Lib.Util.App
   other-modules:
       Paths_servant_starter
   default-language: Haskell2010
@@ -54,6 +57,7 @@ executable servant-starter-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , protolude
     , servant
     , servant-server
@@ -72,6 +76,7 @@ test-suite servant-starter-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , protolude
     , servant
     , servant-server

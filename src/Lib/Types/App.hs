@@ -4,13 +4,12 @@ import           Lib.Types.Session
 import           Protolude
 
 data AppError =
-    Invalid Text
+      Invalid Text
     | NotAllowed Text
     | NotFound
     | ServerError Text
 
-data AppEnv = AppEnv {
-    holder   :: Text,
+newtype AppEnv = AppEnv {
     sessions :: MVar (Map Text Session)
 }
 
