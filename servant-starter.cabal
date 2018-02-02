@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b5c99947ef95b6455bd89ecd3813a2b42117865fa1afc084afca35469abf2e68
+-- hash: 3ca9560937362c1eb5780e2e9cb66c3594f45e9cc52897e73c50595292b89886
 
 name:           servant-starter
 version:        0.1.0.0
@@ -35,6 +35,7 @@ library
     , protolude
     , servant
     , servant-server
+    , wai
     , warp
   exposed-modules:
       Lib
@@ -62,6 +63,7 @@ executable servant-starter-exe
     , servant
     , servant-server
     , servant-starter
+    , wai
     , warp
   other-modules:
       Paths_servant_starter
@@ -77,11 +79,17 @@ test-suite servant-starter-test
   build-depends:
       base >=4.7 && <5
     , containers
+    , hspec
+    , http-client
     , protolude
     , servant
+    , servant-client
     , servant-server
     , servant-starter
+    , wai
     , warp
   other-modules:
+      BasicSpec
+      Util
       Paths_servant_starter
   default-language: Haskell2010

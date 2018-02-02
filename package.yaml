@@ -24,6 +24,7 @@ dependencies:
 - protolude
 - servant
 - servant-server
+- wai
 - warp
 - containers
 
@@ -61,3 +62,6 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - servant-starter
+    - servant-client
+    - hspec
+    - http-client

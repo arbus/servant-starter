@@ -1,12 +1,11 @@
 module Lib where
 
 import           Lib.Prelude
-import Lib.Server
+import           Lib.Server
 import           Network.Wai.Handler.Warp
-import Servant.Server(serve)
-import Data.Map as Map
+import           Servant.Server           (serve)
 
 libMain :: IO ()
 libMain = do
-    sessions <- newMVar Map.empty
-    run 8080 $ serve (Proxy @API) (server AppEnv{..})
+    env <- mkAppEnv
+    run 8080 (mkServer env)
