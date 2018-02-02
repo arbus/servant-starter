@@ -2,7 +2,7 @@ module Lib
     ( someFunc
     ) where
 
-import           Protolude
+import           Lib.Prelude
 
 someFunc :: IO ()
 someFunc = putStrLn ("someFunc" :: Text)

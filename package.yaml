@@ -26,6 +26,8 @@ dependencies:
 default-extensions:
 - OverloadedStrings
 - NoImplicitPrelude
+- GeneralizedNewtypeDeriving
+- RecordWildCards
 
 library:
   source-dirs: src

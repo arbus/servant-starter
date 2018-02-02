@@ -1,0 +1,72 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c8c668c12e9c01c6d4efc348861ea9831c68819cd4be41ac8fa3ac9958eb4449
+
+name:           servant-starter
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/githubuser/servant-starter#readme>
+homepage:       https://github.com/githubuser/servant-starter#readme
+bug-reports:    https://github.com/githubuser/servant-starter/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/servant-starter
+
+library
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  build-depends:
+      base >=4.7 && <5
+    , protolude
+  exposed-modules:
+      Lib
+      Lib.Prelude
+      Lib.Types
+      Lib.Types.App
+      Lib.Types.Session
+  other-modules:
+      Paths_servant_starter
+  default-language: Haskell2010
+
+executable servant-starter-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , protolude
+    , servant-starter
+  other-modules:
+      Paths_servant_starter
+  default-language: Haskell2010
+
+test-suite servant-starter-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , protolude
+    , servant-starter
+  other-modules:
+      Paths_servant_starter
+  default-language: Haskell2010
