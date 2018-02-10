@@ -71,6 +71,22 @@ executeManyPG queryName q args = timedAction queryName $
 asSingleRow :: App [a] -> App a
 asSingleRow = appMaybe . (head <$>)
 
+getSession :: Text -> App (Maybe Session)
+getSession sessionKey = do
+    sessionsVar <- asks sessions
+    sessionMap <- liftIO $ readMVar sessionsVar
+    return Map.lookup sessionKey sessionMap
+
+putSession :: Text -> Session -> App ()
+putSession sessionKey newSession = do
+    sessionsVar <- asks sessions
+    liftIO $ modifyMVar_ sessionsVar (Map.insert sessionKey newSession)
+
+deleteSession :: Text -> App ()
+deleteSession sessionKey = do
+    sessionsVar <- asks sessions
+    liftIO $ modifyMVar_ sessionsVar (Map.delete sessionKey)
+
 getOrCreateDistribution :: Text -> App Dist.Distribution
 getOrCreateDistribution name = do
     ref <- asks sqlDistributions
