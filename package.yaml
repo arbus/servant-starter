@@ -29,6 +29,8 @@ dependencies:
 - containers
 - resource-pool
 - postgresql-simple
+- ekg
+- ekg-core
 
 default-extensions:
 - OverloadedStrings
@@ -50,6 +52,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -with-rtsopts=-T
     dependencies:
     - servant-starter
 
