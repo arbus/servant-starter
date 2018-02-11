@@ -24,6 +24,7 @@ mkAppEnv = do
     sessions <- newMVar Map.empty
     sqlDistributions <- newIORef Map.empty
     ekgStore <- Metrics.newStore
+    jwtSecret <- mkRandomString 20
     Metrics.registerGcMetrics ekgStore
     return AppEnv{..}
 

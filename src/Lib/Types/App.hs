@@ -19,7 +19,8 @@ data AppEnv = AppEnv {
     dbPool           :: Pool Connection,
     sessions         :: MVar (Map Text Session),
     sqlDistributions :: IORef (Map.Map Text Dist.Distribution),
-    ekgStore         :: Metrics.Store
+    ekgStore         :: Metrics.Store,
+    jwtSecret        :: Text
 }
 
 newtype App a = App {

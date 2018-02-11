@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6a9d68423664fd3d3f7a3d4dcc1fff03ae28ccd7acb4d61d8649aec2da54a5f4
+-- hash: 29499877271f77ee5c1f93f6328b9d80a8b0644a6f6528574047c4235d6931af
 
 name:           servant-starter
 version:        0.1.0.0
@@ -30,15 +30,20 @@ library
       src
   default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bcrypt
     , containers
     , ekg
     , ekg-core
+    , jwt
     , postgresql-simple
     , protolude
+    , random
     , resource-pool
     , servant
     , servant-server
+    , time
     , wai
     , warp
   exposed-modules:
@@ -50,6 +55,7 @@ library
       Lib.Types.Session
       Lib.Util
       Lib.Util.App
+      Lib.Util.Crypto
   other-modules:
       Paths_servant_starter
   default-language: Haskell2010
@@ -61,16 +67,21 @@ executable servant-starter-exe
   default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -with-rtsopts=-T
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bcrypt
     , containers
     , ekg
     , ekg-core
+    , jwt
     , postgresql-simple
     , protolude
+    , random
     , resource-pool
     , servant
     , servant-server
     , servant-starter
+    , time
     , wai
     , warp
   other-modules:
@@ -85,19 +96,24 @@ test-suite servant-starter-test
   default-extensions: OverloadedStrings NoImplicitPrelude GeneralizedNewtypeDeriving RecordWildCards DataKinds TypeOperators TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bcrypt
     , containers
     , ekg
     , ekg-core
     , hspec
     , http-client
+    , jwt
     , postgresql-simple
     , protolude
+    , random
     , resource-pool
     , servant
     , servant-client
     , servant-server
     , servant-starter
+    , time
     , wai
     , warp
   other-modules:
